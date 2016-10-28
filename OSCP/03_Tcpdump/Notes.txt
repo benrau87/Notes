@@ -1,0 +1,7 @@
+tcpdump is a command line tool used to capture packets
+
+Dump traffic to a file
+
+tcpdump -i [interface] -w [path/file.cap] -vvv
+
+

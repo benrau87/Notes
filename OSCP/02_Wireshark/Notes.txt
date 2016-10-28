@@ -1,0 +1,26 @@
+Wireshark - go deep
+
+Filters
+
+Show only specific port
+tcp.port eq [number or service]
+tcp.port eq 80 
+OR 
+http
+
+Show only specific IP
+ip.src==[IP] 
+
+Show only traffic between subnet and server
+ip.src==[IP/CIDR] and ip.dst==[IP]
+
+Show packet text related to string
+tcp contains [string]
+look for POST, user, pwd, cookie...
+
+Filter out noise
+!(arp or icmp or dns)
+
+4-way handshakes only
+eapol
+

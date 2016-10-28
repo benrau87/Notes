@@ -1,0 +1,18 @@
+Ncat is a tool that provides read/write access to the command line across networked machines
+Much like netcat but you can specify SSL and other tunnels to encrypt data
+
+
+Shell access
+Target
+ncat --exec "/bin/bash" -l [port] --keep-open
+
+Client
+ncat [target IP] [listening port]
+
+
+File Tansfer
+Target
+ncat -l [port] > outputfile
+
+Client
+ncat [target IP] [port] < inputfile
