@@ -1,1 +1,6 @@
-Notes
+NMAP
+Find hosts
+nmap -sn 10.0.0.0/8 (arp sweep)
+
+Find stuffs
+nmap -sSVC -p- 10.1.1.1
